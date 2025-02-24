@@ -186,6 +186,11 @@ elif page == "Data Analysis":
                     file_name = file.name.replace(file_ext, ".xlsx")
                     mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
+                elif conversion_type == "Excel":
+                    df.to_excel(buffer, index=False, engine="openpyxl")
+                    file_name = file.name.replace(file_ext, ".xls")
+                    mime_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
                 buffer.seek(0)
 
                 st.download_button(
